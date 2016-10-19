@@ -37,11 +37,11 @@ string checkIP()
 {
     string blocked_IP;
 
-    cout<<"The IP address you would like blocked needs to be in the format 10.10.10.10 or 192.168.0.1 Enter the IP you would like blocked: "<<flush;
+    cout<<"The IP address you would like blocked needs to be in a format like these examples: 10.10.10.10 or 192.168.0.1"<<endl<<"Enter the IP you would like blocked: "<<flush;
     while(!(cin>>blocked_IP))
     {
         cin.clear();
-        cerr<<"Input not recognized."<<endl;
+        cerr<<"Input not recognized. Please try again."<<endl;
     }
 
     return blocked_IP;
@@ -91,16 +91,14 @@ void dropTraffic()
         while (!cin.fail() && (correct_input == "n" || correct_input == "no" || correct_input == "NO" || correct_input == "No"));
 
 
-        if(!cin.fail() && (correct_input == "y" || correct_input == "yes" || correct_input == "YES" || correct_input == "Yes"))
+        if(correct_input == "y" || correct_input == "yes" || correct_input == "YES" || correct_input == "Yes")
         {
-            cout<<"Is this for incoming or outgoing traffic? Type i or o: "<<flush;
-            cin>>direction_traffic;
-
-            if (!cin.fail() && (direction_traffic == "i" || direction_traffic == "incoming" || direction_traffic =="INCOMING" || direction_traffic == "Incoming"))
+            direction_traffic=checkDirection();
+            if (direction_traffic == "i" || direction_traffic == "incoming" || direction_traffic =="INCOMING" || direction_traffic == "Incoming")
             {
                 cout<<"iptables -A INPUT -s "<<blocked_range_start<<"-"<<blocked_range_end<<" -j DROP"<<endl;
             }
-            else if(!cin.fail() && (direction_traffic == "o" || direction_traffic == "outgoing" || direction_traffic == "OUTGOING" || direction_traffic == "Outgoing"))
+            else if(direction_traffic == "o" || direction_traffic == "outgoing" || direction_traffic == "OUTGOING" || direction_traffic == "Outgoing")
             {
                 cout<<"iptables -A OUTPUT -s "<<blocked_range_start<<" - "<<blocked_range_end<<" -j DROP"<<endl;
             }
