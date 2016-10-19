@@ -93,7 +93,7 @@ void dropTraffic()
 
         if(correct_input == "y" || correct_input == "yes" || correct_input == "YES" || correct_input == "Yes")
         {
-            direction_traffic=checkDirection();
+            direction_traffic = checkDirection();
             if (direction_traffic == "i" || direction_traffic == "incoming" || direction_traffic =="INCOMING" || direction_traffic == "Incoming")
             {
                 cout<<"iptables -A INPUT -s "<<blocked_range_start<<"-"<<blocked_range_end<<" -j DROP"<<endl;
@@ -117,7 +117,7 @@ void dropTraffic()
     {
         correct_input="no";
         do {
-            blocked_IP=checkIP();
+            blocked_IP = checkIP();
             cout<<"You have entered "<<blocked_IP<<endl<<"Is this correct? Type y or n: "<<flush;
             cin>>correct_input;
         }
@@ -125,7 +125,7 @@ void dropTraffic()
 
         if(correct_input == "y" || correct_input == "yes" || correct_input == "YES" || correct_input == "Yes")
         {
-            direction_traffic=checkDirection();
+            direction_traffic = checkDirection();
             if (direction_traffic == "i" || direction_traffic == "incoming" || direction_traffic == "INCOMING" || direction_traffic == "Incoming")
             {
                 cout<<"iptables -A INPUT -s "<<blocked_IP<<" -j DROP"<<endl;
@@ -172,7 +172,7 @@ void displayRules()
         cout<<"iptables -L INPUT -v"<<endl;
     }
 
-    else if(display_choice ==3)
+    else if(display_choice == 3)
         //This is displaying just the output rules.
     {
         cout<<"iptables -L OUTPUT -v"<<endl;
@@ -237,7 +237,7 @@ void insertRules()
 
     if(correct_input == "y" || correct_input == "yes" || correct_input == "YES" || correct_input == "Yes")
     {
-        direction_traffic=checkDirection();
+        direction_traffic = checkDirection();
         if (direction_traffic == "i" || direction_traffic == "incoming" || direction_traffic == "INCOMING" || direction_traffic == "Incoming")
         {
             cout<<"iptables -I INPUT "<<line_number<<" <insert here>"<<endl;
@@ -295,7 +295,7 @@ void deleteRules()
 
     if(correct_input == "y" || correct_input == "yes" || correct_input == "YES" || correct_input == "Yes")
     {
-        direction_traffic=checkDirection();
+        direction_traffic = checkDirection();
         if (direction_traffic == "i" || direction_traffic == "incoming" || direction_traffic == "INCOMING" || direction_traffic == "Incoming")
         {
             cout<<"iptables -D INPUT "<<line_number<<endl;
