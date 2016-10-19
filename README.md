@@ -7,7 +7,7 @@ and more generic rule options.
 # Installation
 Requires scons. Available for download at: http://scons.org/pages/download.html
 
-Otherwise, the program is very simple and can be built with a c++ compiler.
+Otherwise, the program is concise and can be built with a c++ compiler.
 
 Linux, OS X, Windows:
 
