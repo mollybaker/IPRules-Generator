@@ -18,5 +18,5 @@ scons
 # Meta
 Molly Baker mollyrosebaker@gmail.com
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
+Distributed under the MIT license. See ``LICENSE`` for more information.
 
